@@ -20,8 +20,10 @@ interface Project {
  */
 export default function ProjectFeed({
   showSearch,
+  showFilter,
 }: {
   showSearch?: boolean;
+  showFilter?: boolean;
 }) {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
@@ -54,18 +56,20 @@ export default function ProjectFeed({
   }, []);
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-4">
       {showSearch && (
-        <input
-          className="w-full border rounded-md px-3 py-2 mb-2 text-base"
-          placeholder="Search projects…"
-          // TODO: implement search logic
-        />
+        <div className="mb-3">
+          <input
+            className="w-full border border-[var(--border)] rounded-lg px-4 py-2 text-base bg-white focus:outline-none focus:border-primary shadow-sm transition"
+            placeholder="Search projects…"
+            // TODO: implement search logic
+          />
+        </div>
       )}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {loading
           ? Array.from({ length: 3 }).map((_, i) => (
-              <div key={i} className="rounded-lg bg-neutral-100 dark:bg-neutral-800 h-40 animate-pulse" />
+              <div key={i} className="rounded-2xl bg-neutral-100 dark:bg-neutral-800 h-40 animate-pulse" />
             ))
           : projects.map((project) => (
               <ProjectCard project={project} key={project.id} />

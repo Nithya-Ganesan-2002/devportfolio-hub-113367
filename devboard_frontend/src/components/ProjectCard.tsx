@@ -30,7 +30,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   }
 
   return (
-    <div className="rounded-lg border bg-background p-4 shadow-sm flex flex-col gap-3">
+    <div className="rounded-2xl border border-[var(--border)] bg-[var(--muted-bg)] p-5 shadow hover:shadow-md flex flex-col gap-3 transition-shadow group">
       <div className="flex justify-between items-center">
         <Link href={`/profile/${project.user.username}`}>
           <span className="font-semibold text-primary hover:underline">
@@ -39,19 +39,19 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </Link>
         <button
           onClick={handleLike}
-          className="flex items-center gap-1 px-2 py-1 bg-accent/80 rounded-full text-white text-xs hover:bg-accent transition cursor-pointer"
+          className="flex items-center gap-1 px-3 py-1 bg-accent/90 rounded-full text-white text-xs font-semibold hover:bg-accent hover:scale-105 transition cursor-pointer shadow active:scale-100"
           aria-label="Like project"
         >
-          <span>★</span> {likes}
+          <span style={{fontSize:'1.08em'}}>★</span> {likes}
         </button>
       </div>
-      <div className="font-bold text-lg">{project.title}</div>
-      <div className="text-sm text-neutral-600 dark:text-neutral-300">{project.description}</div>
-      <div className="flex flex-wrap gap-1 mt-2">
+      <div className="font-bold text-xl leading-tight truncate">{project.title}</div>
+      <div className="text-[1rem] text-[var(--secondary)] line-clamp-3">{project.description}</div>
+      <div className="flex flex-wrap gap-2 mt-1">
         {project.tags.map((tag) => (
           <span
             key={tag}
-            className="px-2 py-0.5 rounded-md bg-primary/10 text-primary text-xs font-semibold"
+            className="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wide"
           >
             {tag}
           </span>

@@ -6,11 +6,11 @@ import TagSidebar from "@/components/TagSidebar";
  */
 export default function ExplorePage() {
   return (
-    <div className="flex flex-col md:flex-row gap-8 pt-6">
-      <aside className="w-full md:w-64">
+    <div className="flex flex-col md:flex-row gap-10 pt-8 max-w-6xl mx-auto">
+      <aside className="w-full md:w-64 mb-8 md:mb-0">
         <TagSidebar />
       </aside>
-      <section className="flex-1">
+      <section className="flex-1 flex flex-col">
         <ProjectFeed showSearch showFilter />
       </section>
     </div>

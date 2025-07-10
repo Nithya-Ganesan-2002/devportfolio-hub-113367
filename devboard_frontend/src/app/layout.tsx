@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "DevBoard – Showcase Your Developer Portfolio",
-  description: "Create a profile and showcase your projects. Discover, like, and filter through developer portfolios.",
+  description:
+    "Create a profile and showcase your projects. Discover, like, and filter through developer portfolios.",
 };
 
 /**
@@ -33,7 +34,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--background)] text-[var(--foreground)] min-h-screen`}
       >
         <Navbar />
-        <main className="container mx-auto px-4 md:px-8">{children}</main>
+        <main className="container mx-auto px-4 md:px-8 py-8">{children}</main>
       </body>
     </html>
   );

@@ -1,17 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import PublicProfile from "@/components/PublicProfile";
 
-export default function Page(props: { params: { username: string } }) {
-  // Defensive: Ensure params is not a Promise (diagnostic, will not run in prod)
-  if (
-    typeof props.params === "object" &&
-    props.params !== null &&
-    typeof (props.params as any).then === "function"
-  ) {
-    throw new Error("params unexpectedly is a Promise!");
-  }
-  const { username } = props.params;
+/**
+ * Dynamic profile page for [username].
+ * "params" is typed as any due to possible custom/incorrect PageProps constraint conflict.
+ */
+export default function Page({ params }: { params: any }) {
+  const { username } = params;
   return (
-    <div className="pt-8">
+    <div className="pt-12 max-w-3xl mx-auto">
       <PublicProfile username={username} />
     </div>
   );

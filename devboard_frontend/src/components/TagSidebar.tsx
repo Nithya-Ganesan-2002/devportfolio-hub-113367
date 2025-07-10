@@ -28,10 +28,11 @@ export default function TagSidebar() {
           {tags.map((tag) => (
             <button
               key={tag}
-              className={`px-3 py-1 rounded-full text-sm border border-neutral-200 dark:border-neutral-800 bg-background hover:bg-accent/20 transition ${
-                selected === tag ? "bg-primary/80 text-white" : ""
-              }`}
+              className={`px-3 py-1 rounded-full text-sm font-semibold border border-[var(--border)] bg-[var(--muted-bg)] hover:bg-accent/10 hover:border-accent/50 transition 
+                ${selected === tag ? "bg-primary text-white border-primary" : "text-primary"}
+              `}
               onClick={() => setSelected(selected === tag ? null : tag)}
+              type="button"
             >
               {tag}
             </button>
